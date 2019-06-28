@@ -64,10 +64,10 @@ def calc_sign(pd_id, passwd, timestamp):
 class CallRecognizeApi:
     def __init__(self, timestamp):
         self.timestamp = timestamp
-        self.pd_id = "112991"  # 用户中心页可以查询到pd信息
-        self.pd_key = "6yvCHmyy+G8OAv1fsnVXWVcSRd86xu7R"
-        self.app_id = "312991"  # 开发者分成用的账号，在开发者中心可以查询到
-        self.app_key = "p8f6nh8TzzRreDK9WuFQIo5QsJUPpPr/"
+        self.pd_id = ""  # 用户中心页可以查询到pd信息
+        self.pd_key = ""
+        self.app_id = ""  # 开发者分成用的账号，在开发者中心可以查询到
+        self.app_key = ""
         # 识别类型，
         # 具体类型可以查看官方网站的价格页选择具体的类型，不清楚类型的，可以咨询客服
         self.pred_type = "30400"

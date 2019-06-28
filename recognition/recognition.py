@@ -3,7 +3,6 @@ import asyncio
 from pyppeteer import launch
 import hashlib
 
-from meituan.recognize import FateadmApi
 from recognition.call_recognize_api import CallRecognizeApi
 
 
