@@ -1,7 +1,22 @@
 import time
 import asyncio
 from pyppeteer import launch
-import os
+import hashlib
+
+from meituan.recognize import FateadmApi
+from recognition.call_recognize_api import CallRecognizeApi
+
+
+def CalcSign(pd_id, passwd, timestamp):
+    md5 = hashlib.md5()
+    md5.update((timestamp + passwd).encode())
+    csign = md5.hexdigest()
+
+    md5 = hashlib.md5()
+    md5.update((pd_id + timestamp + csign).encode())
+    csign = md5.hexdigest()
+    return csign
+
 
 class Recognition:
     def __init__(self, url):
@@ -23,15 +38,12 @@ class Recognition:
         bb = await ele.boundingBox()
         bb['x'] += 1.55 * bb.get('width')
         bb['y'] += 1.4 * bb.get('height')
-        await page.screenshot({'path': './example.png', 'clip': bb})
+        await page.screenshot({'path': './'+self.timestamp+'.png', 'clip': bb})
+        result = CallRecognizeApi(self.timestamp).call_recognize_api
 
-        # print(html)
-        # src = re.search(r'src="blob:(.*?)">', html, flags=re.DOTALL).group(1)
-        # print(src)
+        # 获取输入框
 
-        #    print(src)
-        #     await page.type('input.image__imageInput___2SPQH','pytn')
         # 点击验证按钮
-        # await page.click('input#yodaImgCodeSure')
+        await page.click('input#yodaImgCodeSure')
         await browser.close()
 

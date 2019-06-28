@@ -80,7 +80,7 @@ def HttpRequest(url, body_data, img_data=""):
 class FateadmApi():
     # API接口调用类
     # 参数（appID，appKey，pdID，pdKey）
-    def __init__(self, app_id, app_key, pd_id, pd_key):
+    def __init__(self, app_id, app_key, head_info, pd_key):
         self.app_id = app_id
         if app_id is None:
             self.app_id = ""
@@ -318,7 +318,7 @@ def TestFunc():
     pred_type = "30400"
     api = FateadmApi(app_id, app_key, pd_id, pd_key)
     # 查询余额
-    balance = api.QueryBalcExtend()  # 直接返余额
+    # balance = api.QueryBalcExtend()  # 直接返余额
     # api.QueryBalc()
 
     # 通过文件形式识别：
