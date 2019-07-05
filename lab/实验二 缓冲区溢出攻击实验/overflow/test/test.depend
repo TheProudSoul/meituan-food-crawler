@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1555080515 source:c:\overflow\test\main.c
+	<stdio.h>
+	<string.h>
+
+1555081710 source:c:\overflow\test\foo.c
+
+1555081661 source:c:\overflow\test\runaway.c
+
